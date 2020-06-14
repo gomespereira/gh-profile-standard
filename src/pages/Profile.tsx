@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+
+import Info from '../components/User/Info'
+import Repos from '../components/User/Repos'
 
 function Profile() {
   return (
-    <div>Profile</div>
+    <Fragment>
+      <Info />
+      <Repos />
+    </Fragment>
   )
 }
 
