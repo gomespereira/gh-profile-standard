@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import axios from 'axios'
 
 function Form() {
   const [username, setUsername] = useState("")
@@ -13,14 +14,14 @@ function Form() {
     event.preventDefault()
 
     try {
-      const response = await fetch(`https://api.github.com/users/${username}`, {
-        method: 'GET',
+      const { data } = await axios({
+        url: `https://api.github.com/users/${username}`,
+        method: 'get',
         headers: {
           'Accept': 'application/vnd.github.v3+json',
-          'Authorization': 'token e8f90277ace135d60e914776a3388ca2d28e2791'
+          'Authorization': process.env.REACT_APP_GITHUB_TOKEN
         }
       })
-      const data = await response.json()
 
       history.push({ pathname: '/profile', state: data })
     } catch (error) {

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import axios from 'axios'
 
 function Repos() {
   const [userRepos, setUserRepos] = useState<any[]>([])
@@ -9,14 +10,14 @@ function Repos() {
   useEffect(() => {
     async function fetchUserRepos() {
       try {
-        const response = await fetch(`https://api.github.com/users/${username}/repos`, {
-          method: 'GET',
+        const { data } = await axios({
+          url: `https://api.github.com/users/${username}/repos`,
+          method: 'get',
           headers: {
             'Accept': 'application/vnd.github.v3+json',
-            'Authorization': 'token e8f90277ace135d60e914776a3388ca2d28e2791'
+            'Authorization': process.env.REACT_APP_GITHUB_TOKEN
           }
         })
-        const data = await response.json()
 
         setUserRepos(data)
       } catch (error) {
