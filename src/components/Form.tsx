@@ -11,6 +11,7 @@ function Form() {
 
   async function handleSubmit(event: any) {
     event.preventDefault()
+
     try {
       const response = await fetch(`https://api.github.com/users/${username}`, {
         method: 'GET',
@@ -30,7 +31,7 @@ function Form() {
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="username">github.com/</label>
-      <input id="username" type="text" onChange={handleChange}/>
+      <input id="username" className="ml-1 pl-2 rounded outline-none focus:shadow-outline" type="text" placeholder={'Press "/" to focus'} onChange={handleChange}/>
     </form>
   )
 }
