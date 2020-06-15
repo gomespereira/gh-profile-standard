@@ -1,9 +1,11 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
+import { format, parseISO } from 'date-fns'
 
 function Info() {
   let location = useLocation<any>()
   const userData = location.state
+  const formattedDate = format(parseISO(userData.created_at), 'MMMM dd, yyyy')
 
   return (
     <section className="flex flex-col items-center space-y-4">
@@ -18,7 +20,7 @@ function Info() {
 
       <div className="flex flex-col items-center">
         <span>{userData.location}</span>
-        <span>Joined in {userData.created_at}</span>
+        <span>Joined in {formattedDate}</span>
       </div>
 
       <div className="flex space-x-5">
