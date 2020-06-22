@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react'
 
-import Info from '../components/User/Info'
-import Repos from '../components/User/Repos'
+import Info from '../components/user/Info'
+import Repos from '../components/user/Repos'
 
-function Profile() {
+export default function Profile() {
   return (
     <Fragment>
       <Info />
@@ -11,5 +11,3 @@ function Profile() {
     </Fragment>
   )
 }
-
-export default Profile

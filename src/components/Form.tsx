@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 
-function Form() {
-  const [username, setUsername] = useState("")
+export default function Form() {
+  const [username, setUsername] = useState('')
   let history = useHistory()
 
   function handleChange(event: any) {
@@ -12,7 +12,6 @@ function Form() {
 
   async function handleSubmit(event: any) {
     event.preventDefault()
-
     try {
       const { data } = await axios({
         url: `https://api.github.com/users/${username}`,
@@ -23,7 +22,10 @@ function Form() {
         }
       })
 
-      history.push({ pathname: '/profile', state: data })
+      history.push({
+        pathname: '/profile',
+        state: data
+      })
     } catch (error) {
       console.log(error)
     }
@@ -32,9 +34,13 @@ function Form() {
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="username">github.com/</label>
-      <input id="username" className="ml-1 pl-2 rounded outline-none focus:shadow-outline" type="text" placeholder={'Press "/" to focus'} onChange={handleChange}/>
+      <input
+        id="username"
+        className="ml-1 pl-2 rounded outline-none focus:shadow-outline"
+        type="text"
+        placeholder={'Press "/" to focus'}
+        onChange={handleChange}
+      />
     </form>
   )
 }
-
-export default Form

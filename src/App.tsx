@@ -1,13 +1,11 @@
 import React from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
 
-import './App.css'
+import Header from './components/layout/Header'
+import Content from './components/layout/Content'
+import Footer from './components/layout/Footer'
 
-import Header from './layout/Header'
-import Content from './layout/Content'
-import Footer from './layout/Footer'
-
-function App() {
+export default function App() {
   return (
     <Router>
       <Header />
@@ -16,5 +14,3 @@ function App() {
     </Router>
   )
 }
-
-export default App
