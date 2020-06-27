@@ -28,6 +28,8 @@ The most popular packages were used according to [NPM Trends](https://www.npmtre
 
 - [`create-react-app`](https://create-react-app.dev/)
 - [`react-router-dom`](https://reacttraining.com/react-router/)
+- [`react-query`](https://github.com/tannerlinsley/react-query)
+- [`react-query-devtools`](https://github.com/tannerlinsley/react-query-devtools)
 - [`axios`](https://github.com/axios/axios)
 - [`date-fns`](https://date-fns.org/)
 - [`tailwindcss`](https://tailwindcss.com/)

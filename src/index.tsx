@@ -1,5 +1,6 @@
 import React, { StrictMode } from 'react'
 import { render } from 'react-dom'
+import { ReactQueryDevtools } from 'react-query-devtools'
 
 import './index.css'
 
@@ -9,6 +10,7 @@ import * as serviceWorker from './serviceWorker'
 
 render(
   <StrictMode>
+    <ReactQueryDevtools initialIsOpen={false} />
     <App />
   </StrictMode>,
   document.getElementById('root')

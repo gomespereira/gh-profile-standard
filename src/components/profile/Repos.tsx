@@ -1,38 +1,21 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { useLocation } from 'react-router-dom'
-import axios from 'axios'
+import { useQuery } from 'react-query'
+
+import { fetchData } from '../../utils/utils'
 
 export default function Repos() {
-  const [userRepos, setUserRepos] = useState<any[]>([])
   let location = useLocation<any>()
-  const username = location.state.login
+  const username = location.state
+  const { data } = useQuery(`https://api.github.com/users/${username}/repos`, fetchData)
 
-  useEffect(() => {
-    async function fetchUserRepos() {
-      try {
-        const { data } = await axios({
-          url: `https://api.github.com/users/${username}/repos`,
-          method: 'get',
-          headers: {
-            'Accept': 'application/vnd.github.v3+json',
-            'Authorization': process.env.REACT_APP_GITHUB_TOKEN
-          }
-        })
-
-        setUserRepos(data)
-      } catch (error) {
-        console.log(error)
-      }
-    }
-
-    fetchUserRepos()
-  }, [username])
+  if (!data) return <div>Loading...</div>
 
   return (
     <section className="flex flex-col items-center mt-4">
       <div className="font-bold">Repositories</div>
       <div className="grid gap-4 lg:grid-cols-3 mt-4">
-        {userRepos.map((repo) => (
+        {data.map((repo: any) => (
           <div
             className="flex flex-col space-y-2 p-6 bg-green-100 rounded-md"
             key={repo.id}
