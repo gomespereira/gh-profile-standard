@@ -606,6 +606,26 @@ video {
   }
 }
 
+@font-face {
+  font-family: 'DM Mono';
+
+  font-display: swap;
+
+  src: url('/fonts/dm-mono.woff2') format('woff2'),
+       url('/fonts/dm-mono.woff') format('woff'),
+       url('/fonts/dm-mono.ttf') format('truetype');
+}
+
+#root {
+  font-family: 'DM Mono', monospace;
+  min-height: -webkit-fill-available;
+  display: flex;
+  flex-direction: column;
+  --bg-opacity: 1;
+  background-color: #feb2b2;
+  background-color: rgba(254, 178, 178, var(--bg-opacity));
+}
+
 .space-y-0 > :not(template) ~ :not(template) {
   --space-y-reverse: 0;
   margin-top: calc(0px * calc(1 - var(--space-y-reverse)));

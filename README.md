@@ -45,3 +45,11 @@ The color palette was randomly generated using [Coolors](https://coolors.co/), t
 ## Source Map
 
 ![Source Map](/docs/source_map.png)
+
+## Todo
+
+- [ ] prefetch links `quicklink`
+- [ ] handle form using `formik`
+- [ ] validate user input
+- [ ] animate using `react-spring`
+- [ ] write tests

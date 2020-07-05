@@ -9,7 +9,7 @@ export default function Form() {
     setUsername(event.target.value)
   }
 
-  async function handleSubmit(event: any) {
+  function handleSubmit(event: any) {
     event.preventDefault()
     history.push({
       pathname: '/profile',
