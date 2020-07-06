@@ -1,12 +1,11 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { useQuery } from 'react-query'
 
-import { fetchData } from '../../utils/utils'
+import { fetchData } from 'utils/utils'
 
 export default function Repos() {
-  let location = useLocation<any>()
-  const username = location.state
+  const { username } = useParams()
   const { data } = useQuery(`https://api.github.com/users/${username}/repos?per_page=18`, fetchData)
 
   if (!data) return <div>Loading user repositories...</div>

@@ -19,7 +19,8 @@
     "noEmit": true,
     "jsx": "react",
     "importHelpers": true,
-    "removeComments": true
+    "removeComments": true,
+    "baseUrl": "./src"
   },
   "include": [
     "src"

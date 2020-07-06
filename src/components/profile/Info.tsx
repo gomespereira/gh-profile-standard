@@ -1,13 +1,12 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { useQuery } from 'react-query'
 import { format, parseISO } from 'date-fns'
 
-import { fetchData } from '../../utils/utils'
+import { fetchData } from 'utils/utils'
 
 export default function Info() {
-  let location = useLocation<any>()
-  const username = location.state
+  const { username } = useParams()
   const { data } = useQuery(`https://api.github.com/users/${username}`, fetchData)
 
   if (!data) return <div>Loading user information...</div>

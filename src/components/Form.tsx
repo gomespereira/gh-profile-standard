@@ -11,10 +11,7 @@ export default function Form() {
 
   function handleSubmit(event: any) {
     event.preventDefault()
-    history.push({
-      pathname: '/profile',
-      state: username
-    })
+    history.push(`/profile/${username}`)
   }
 
   return (
