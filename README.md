@@ -28,7 +28,7 @@ The most popular packages were used according to [NPM Trends](https://www.npmtre
 
 - [`create-react-app`](https://create-react-app.dev/)
 - [`react-router-dom`](https://reacttraining.com/react-router/)
-- [`react-query`](https://github.com/tannerlinsley/react-query)
+- [`react-query`](https://react-query.tanstack.com/)
 - [`react-query-devtools`](https://github.com/tannerlinsley/react-query-devtools)
 - [`axios`](https://github.com/axios/axios)
 - [`date-fns`](https://date-fns.org/)
@@ -48,6 +48,11 @@ The color palette was randomly generated using [Coolors](https://coolors.co/), t
 
 ## Todo
 
+- [ ] route-based code splitting
+- [ ] use `memo` on some simpler components
+- [ ] use `suspense` on data fetching components
+- [ ] extract and inline css using `critical`
+- [ ] pre-render static html using `react-snap`
 - [ ] prefetch links `quicklink`
 - [ ] handle form using `formik`
 - [ ] validate user input
