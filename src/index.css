@@ -660,10 +660,16 @@ video {
   margin-bottom: calc(2.5rem * var(--space-y-reverse));
 }
 
-.bg-blue-100 {
+.bg-white {
   --bg-opacity: 1;
-  background-color: #ebf8ff;
-  background-color: rgba(235, 248, 255, var(--bg-opacity));
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, var(--bg-opacity));
+}
+
+.border-blue-900 {
+  --border-opacity: 1;
+  border-color: #2a4365;
+  border-color: rgba(42, 67, 101, var(--border-opacity));
 }
 
 .rounded {
@@ -676,6 +682,10 @@ video {
 
 .rounded-full {
   border-radius: 9999px;
+}
+
+.border-2 {
+  border-width: 2px;
 }
 
 .flex {
