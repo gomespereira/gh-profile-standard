@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export async function fetchData(url: string) {
+export async function fetchData(url: string): Promise<any> {
   const { data } = await axios({
     url: url,
     method: 'get',
@@ -9,5 +9,10 @@ export async function fetchData(url: string) {
       'Authorization': process.env.REACT_APP_GITHUB_TOKEN
     }
   })
+
   return data
+}
+
+export function formatNumber(number: number): string {
+  return `${(number / 1000).toFixed(1)}k`
 }

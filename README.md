@@ -51,6 +51,8 @@ The color palette was randomly generated using [Coolors](https://coolors.co/), t
 - [ ] route-based code splitting
 - [ ] use `memo` on some simpler components
 - [ ] use `suspense` on data fetching components
+- [ ] make skeleton loaders
+- [ ] abstract repos into a separate component
 - [ ] extract and inline css using `critical`
 - [ ] pre-render static html using `react-snap`
 - [ ] prefetch links `quicklink`

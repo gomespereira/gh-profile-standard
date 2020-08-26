@@ -20,7 +20,8 @@
     "jsx": "react",
     "importHelpers": true,
     "removeComments": true,
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "strictNullChecks": false
   },
   "include": [
     "src"

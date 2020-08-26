@@ -3,15 +3,16 @@ import { useParams } from 'react-router-dom'
 import { useQuery } from 'react-query'
 import { format, parseISO } from 'date-fns'
 
-import { fetchData } from 'utils/utils'
+import { fetchData, formatNumber } from 'utils/utils'
 
 export default function Info() {
   const { username } = useParams()
   const { data } = useQuery(`https://api.github.com/users/${username}`, fetchData)
-
+  
   if (!data) return <div>Loading user information...</div>
-
+  
   const formattedDate = format(parseISO(data.created_at), 'MMMM dd, yyyy')
+  const formattedNumber = formatNumber(data.followers)
 
   return (
     <section className="flex flex-col items-center space-y-4">
@@ -76,12 +77,12 @@ export default function Info() {
             <a
               className="font-bold hover:text-blue-900"
               href={`https://github.com/${data.login}?tab=followers`}
-              target="__blank"
+              target="_blank"
               rel="noopener noreferrer"
             >
               {
                 data.followers >= 1000
-                  ? `${(data.followers / 1000).toFixed(1)}k`
+                  ? formattedNumber
                   : data.followers
               }
             </a>
@@ -89,7 +90,7 @@ export default function Info() {
             <a
               className="font-bold hover:text-blue-900"
               href={`https://github.com/${data.login}?tab=following`}
-              target="__blank"
+              target="_blank"
               rel="noopener noreferrer"
             >
               {data.following}

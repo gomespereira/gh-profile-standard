@@ -2,24 +2,24 @@ import React, { useRef, useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 
 export default function Form() {
-  const inputElement = useRef<HTMLInputElement>(null)
-  const [username, setUsername] = useState<string>('')
-  let history = useHistory<object>()
+  const inputElement = useRef(null)
+  const [username, setUsername] = useState('')
+  let history = useHistory()
 
   useEffect(() => {
     document.onkeyup = handleKeyUp
   },[])
 
-  function handleKeyUp(event: any) {
-    if (event.keyCode === 191) inputElement.current?.focus()
-    if (event.keyCode === 27) inputElement.current?.blur()
+  function handleKeyUp(event: any): void {
+    if (event.key === 191) inputElement.current.focus()
+    if (event.key === 27) inputElement.current.blur()
   }
 
-  function handleChange(event: any) {
+  function handleChange(event: any): void {
     setUsername(event.target.value)
   }
 
-  function handleSubmit(event: any) {
+  function handleSubmit(event: any): void {
     event.preventDefault()
     history.push(`/profile/${username}`)
   }

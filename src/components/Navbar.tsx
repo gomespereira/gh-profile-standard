@@ -2,7 +2,7 @@ import React from 'react'
 import { useLocation, Link } from 'react-router-dom'
 
 export default function Navbar() {
-  let location = useLocation<any>()
+  let location = useLocation()
 
   return (
     <nav className="mt-4 mr-2 ml-2 md:mt-8 md:mr-10 md:ml-10">
